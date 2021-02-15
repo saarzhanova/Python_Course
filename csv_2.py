@@ -10,6 +10,6 @@ with open('1.csv', 'w', encoding="utf8") as new_csvfile:
                 if 10000 < int(row[-1].replace('.0', '')) < 50000:
                     file_writer.writerow(row)
             except ValueError:
-                print('wrong')
+                print('Something is wrong')
 
 
