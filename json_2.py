@@ -9,9 +9,12 @@ with open('json_new.json', 'w', encoding='utf-8') as new_file:
             for scenes in acts["scenes"]:
                 for action in scenes["action"]:
                     if action['character'] not in characters:
-                        characters.append(action['character'])
-                new_dict_obj[scenes["title"]] = characters
+                        characters.append(action['character'])#
+                new_json = json.dumps(characters)
+                new_file.write(new_json + '\n')
                 characters = []
-    json.dump(new_dict_obj, new_file, indent=4, ensure_ascii=False)
+
+
+
 
 

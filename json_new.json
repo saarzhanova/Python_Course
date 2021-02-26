@@ -1,150 +1,24 @@
-{
-    "SCENE I. Verona. A public place.": [
-        "SAMPSON",
-        "GREGORY",
-        "ABRAHAM",
-        "BENVOLIO",
-        "TYBALT",
-        "First Citizen",
-        "CAPULET",
-        "LADY CAPULET",
-        "MONTAGUE",
-        "LADY MONTAGUE",
-        "PRINCE",
-        "ROMEO"
-    ],
-    "SCENE II. A street.": [
-        "CAPULET",
-        "PARIS",
-        "Servant",
-        "BENVOLIO",
-        "ROMEO"
-    ],
-    "SCENE III. A room in Capulet's house.": [
-        "LADY CAPULET",
-        "Nurse",
-        "JULIET",
-        "Servant"
-    ],
-    "SCENE IV. A street.": [
-        "MERCUTIO",
-        "BENVOLIO",
-        "ROMEO",
-        "Nurse",
-        "PETER",
-        "NURSE"
-    ],
-    "SCENE V. A hall in Capulet's house.": [
-        "First Servant",
-        "Second Servant",
-        "CAPULET",
-        "Second Capulet",
-        "ROMEO",
-        "Servant",
-        "TYBALT",
-        "JULIET",
-        "Nurse",
-        "BENVOLIO"
-    ],
-    "SCENE I. A lane by the wall of Capulet's orchard.": [
-        "ROMEO",
-        "BENVOLIO",
-        "MERCUTIO"
-    ],
-    "SCENE II. Capulet's orchard.": [
-        "JULIET",
-        "Nurse"
-    ],
-    "SCENE III. Friar Laurence's cell.": [
-        "FRIAR LAURENCE",
-        "ROMEO",
-        "Nurse"
-    ],
-    "SCENE V. Capulet's orchard.": [
-        "JULIET",
-        "ROMEO",
-        "Nurse",
-        "LADY CAPULET",
-        "CAPULET"
-    ],
-    "SCENE VI. Friar Laurence's cell.": [
-        "FRIAR LAURENCE",
-        "ROMEO",
-        "JULIET"
-    ],
-    "SCENE I. A public place.": [
-        "BENVOLIO",
-        "MERCUTIO",
-        "TYBALT",
-        "ROMEO",
-        "First Citizen",
-        "PRINCE",
-        "LADY CAPULET",
-        "MONTAGUE"
-    ],
-    "SCENE IV. A room in Capulet's house.": [
-        "CAPULET",
-        "PARIS",
-        "LADY CAPULET"
-    ],
-    "SCENE I. Friar Laurence's cell.": [
-        "FRIAR LAURENCE",
-        "PARIS",
-        "JULIET"
-    ],
-    "SCENE II. Hall in Capulet's house.": [
-        "CAPULET",
-        "Second Servant",
-        "Nurse",
-        "JULIET",
-        "LADY CAPULET",
-        "LADY  CAPULET"
-    ],
-    "SCENE III. Juliet's chamber.": [
-        "JULIET",
-        "LADY CAPULET"
-    ],
-    "SCENE IV. Hall in Capulet's house.": [
-        "LADY CAPULET",
-        "Nurse",
-        "CAPULET",
-        "First Servant",
-        "Second Servant"
-    ],
-    "SCENE V. Juliet's chamber.": [
-        "Nurse",
-        "LADY CAPULET",
-        "CAPULET",
-        "FRIAR LAURENCE",
-        "PARIS",
-        "First Musician",
-        "PETER",
-        "Second Musician",
-        "Musician",
-        "Third Musician"
-    ],
-    "SCENE I. Mantua. A street.": [
-        "ROMEO",
-        "BALTHASAR",
-        "Apothecary"
-    ],
-    "SCENE II. Friar Laurence's cell.": [
-        "FRIAR JOHN",
-        "FRIAR LAURENCE"
-    ],
-    "SCENE III. A churchyard; in it a tomb belonging to the Capulets.": [
-        "PARIS",
-        "PAGE",
-        "ROMEO",
-        "BALTHASAR",
-        "FRIAR LAURENCE",
-        "JULIET",
-        "First Watchman",
-        "Second Watchman",
-        "Third Watchman",
-        "PRINCE",
-        "CAPULET",
-        "LADY CAPULET",
-        "MONTAGUE"
-    ]
-}
+["SAMPSON", "GREGORY", "ABRAHAM", "BENVOLIO", "TYBALT", "First Citizen", "CAPULET", "LADY CAPULET", "MONTAGUE", "LADY MONTAGUE", "PRINCE", "ROMEO"]
+["CAPULET", "PARIS", "Servant", "BENVOLIO", "ROMEO"]
+["LADY CAPULET", "Nurse", "JULIET", "Servant"]
+["ROMEO", "BENVOLIO", "MERCUTIO"]
+["First Servant", "Second Servant", "CAPULET", "Second Capulet", "ROMEO", "Servant", "TYBALT", "JULIET", "Nurse", "BENVOLIO"]
+["ROMEO", "BENVOLIO", "MERCUTIO"]
+["ROMEO", "JULIET", "Nurse"]
+["FRIAR LAURENCE", "ROMEO"]
+["MERCUTIO", "BENVOLIO", "ROMEO", "Nurse", "PETER", "NURSE"]
+["JULIET", "Nurse"]
+["FRIAR LAURENCE", "ROMEO", "JULIET"]
+["BENVOLIO", "MERCUTIO", "TYBALT", "ROMEO", "First Citizen", "PRINCE", "LADY CAPULET", "MONTAGUE"]
+["JULIET", "Nurse"]
+["FRIAR LAURENCE", "ROMEO", "Nurse"]
+["CAPULET", "PARIS", "LADY CAPULET"]
+["JULIET", "ROMEO", "Nurse", "LADY CAPULET", "CAPULET"]
+["FRIAR LAURENCE", "PARIS", "JULIET"]
+["CAPULET", "Second Servant", "Nurse", "JULIET", "LADY CAPULET", "LADY  CAPULET"]
+["JULIET", "LADY CAPULET"]
+["LADY CAPULET", "Nurse", "CAPULET", "First Servant", "Second Servant"]
+["Nurse", "LADY CAPULET", "CAPULET", "FRIAR LAURENCE", "PARIS", "First Musician", "PETER", "Second Musician", "Musician", "Third Musician"]
+["ROMEO", "BALTHASAR", "Apothecary"]
+["FRIAR JOHN", "FRIAR LAURENCE"]
+["PARIS", "PAGE", "ROMEO", "BALTHASAR", "FRIAR LAURENCE", "JULIET", "First Watchman", "Second Watchman", "Third Watchman", "PRINCE", "CAPULET", "LADY CAPULET", "MONTAGUE"]
