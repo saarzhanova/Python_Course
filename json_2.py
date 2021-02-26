@@ -1,6 +1,7 @@
 import json
 
 characters = []
+
 with open('json_new.json', 'w', encoding='utf-8') as new_file:
     with open('RomeoAndJuliet.json', 'r', encoding='utf-8') as file:
         dict_obj = json.load(file)
