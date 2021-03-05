@@ -6,7 +6,7 @@ conj = 0
 verb = 0
 with open('new.xml', 'w', encoding='utf-8') as file:
     for tfr in root.iter('tfr'):
-        if tfr.get('t') == 'может':
+        if tfr.get('t').lower() == 'может':
             for g in tfr.iter('g'):
                 if g.get('v') == 'CONJ':
                     conj += 1
