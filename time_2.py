@@ -16,6 +16,5 @@ for i in range(100001):
         print(str(i) + c)
 f = time.process_time()
 now = time.strftime('%d.%m.%Y.%H.%M.%S')
-file = open(f'{now}.txt', 'w', encoding='utf-8')
-file.write("Время, за которое программа считает 100001 овцу: " + str(f-s) + " секунд")
-file.close()
+with open(f'{now}.txt', 'w', encoding='utf-8') as file:
+    file.write("Время, за которое программа считает 100001 овцу: " + str(f-s) + " секунд")
