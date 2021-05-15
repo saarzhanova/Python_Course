@@ -1,4 +1,5 @@
 class Box:
+
     def __init__(self, size):
         self.size = size
         self.count = []
@@ -35,7 +36,6 @@ class Create:
 
 
 krug = Create('krug', 1)
-krug.check()
 kv = Create('kvadrat', 4)
 tr = Create('treugolnik', 6)
 box = Box(10)
