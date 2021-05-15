@@ -5,7 +5,7 @@ class Person:
         self.money = money
 
     def introduce(self):
-        print(self.name + ' has got ' + str(self.money) + ' dollars')
+        print(self.name + ' has got ' + str(self.money) + ' dollars now')
         return self.name, self.money
 
     def share(self, somebody, money):
@@ -20,30 +20,33 @@ class Person:
 
 class Robber:
 
-    def __init__(self, name, money):
-        self.name = name
+    def __init__(self, money, tool):
         self.money = money
+        self.tool = tool
 
-    def introduce(self):
-        print(self.name + ' has got ' + str(self.money) + ' dollars')
-        return self.name, self.money
+    def needs(self):
+        print('A person with a ' + self.tool + ' needs ' + str(self.money) + ' dollars')
+        return self.money, self.tool
 
     def rob(self, somebody):
-        self.money += somebody.money
-        somebody.money = 0
-        print('Someone stole all ' + somebody.name + "'s money. Now " + self.name + "'s got " + str(self.money) + ' and ' + somebody.name + "'s got nothing. (" + str(somebody.money) + " dollars)")
-        return somebody.money
+        if somebody.money > self.money:
+            somebody.money -= self.money
+            print('A person with a ' + self.tool + ' stole ' + str(self.money) + " dollars from " + somebody.name)
+            self.money = 0
+        else:
+            self.money -= somebody.money
+            somebody.money = 0
+            print('A person with a ' + self.tool + ' stole all the money from ' + somebody.name)
+        return somebody.introduce(), self.needs()
 
 
 Mike = Person('Mike', 100)
-Lisa = Person('Lisa', 300)
-Luke = Robber('Luke', 15)
+Lisa = Person('Lisa', 400)
+Luke = Robber(300, 'gun')
 Mike.introduce()
-Luke.introduce()
 Lisa.introduce()
+Luke.needs()
+print()
 Luke.rob(Mike)
-Lisa.share(Mike, 100)
-Lisa.share(Mike, 100)
-Lisa.introduce()
-
-
+print()
+Luke.rob(Lisa)
