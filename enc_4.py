@@ -20,22 +20,25 @@ class Student:
         self.student = False
         print('Студента ' + self.name +' исключили из университета')
 
-    def _do_homework(self):
+    def study(self):
         if self.student is True:
             if self.homework > 0:
-                if self.__will > 0:
-                    print(self.name + ' выполнил(a) 1 домашнее задание из ' + str(self.homework))
-                    self.homework -= 1
-                    self.__will -= 1
-                else:
-                    print('Студент ' + self.name + ' слишком устал. Доделает завтра')
-                    self.sleep()
+                self._do_homework()
             else:
                 print(self.name + ' сделал(a) все задания и может отдыхать')
                 if self.deadline > 0:
                     self.deadline -= 1
         else:
             print('Зачем? ' + self.name + ' не студент.')
+
+    def _do_homework(self):
+        if self.__will > 0:
+            print(self.name + ' выполнил(a) 1 домашнее задание из ' + str(self.homework))
+            self.homework -= 1
+            self.__will -= 1
+        else:
+            print('Студент ' + self.name + ' слишком устал. Доделает завтра')
+            self.sleep()
 
     def sleep(self):
         if self.student is True:
@@ -61,25 +64,25 @@ class Student:
 
 eugene = Student('Евгений', 3, 4)
 eugene.get_will()
-eugene._do_homework()
-eugene._do_homework()
+eugene.study()
+eugene.study()
 eugene.get_will()
-eugene._do_homework()
-eugene._do_homework()   # Здесь студент Евгений устал и захотел ленчь спать.
+eugene.study()
+eugene.study()   # Здесь студент Евгений устал и захотел ленчь спать.
 # Если напечатать "yes", то он ляжет спать и пропустит дедлайн.
 # Если напечатать, например, "no", то Евгений найдет в себе силы соделать ещё одно задание.
 
 print()
 sergey = Student('Сергей', 4, 1)
 sergey.get_will()
-sergey._do_homework()
-sergey._do_homework()   # У студента Сергея было мало домашней работы.
+sergey.study()
+sergey.study()   # У студента Сергея было мало домашней работы.
 print()
 nikolay = Student('Николай', 1, 6)  # Студент Николай - бездельник. Он не любит учиться.
 nikolay.get_will()
-nikolay._do_homework()
-nikolay._do_homework()
+nikolay.study()
+nikolay.study()
 # Если Николай не найдет в себе силы продержаться ещё хотя бы 2 часа и сделать 2 задания,
 # исключение неизбежно.
-nikolay._do_homework()
+nikolay.study()
 nikolay.sleep()
