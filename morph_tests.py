@@ -1,5 +1,13 @@
-from morph_1 import corp, Corpus, s, Sentence, wf, WordForm, gr
+from morph_1 import Corpus, Sentence, WordForm
 import unittest
+
+corp = Corpus()
+corp.load_corp('annot.opcorpora.no_ambig.xml')
+s = corp.sentences(7)
+wf = s.get_wf(1)
+gr = wf.get_gr(0)
+sentence = s.sentence
+wordform = wf.wordform
 
 
 class CorporaTester(unittest.TestCase):
@@ -10,15 +18,15 @@ class CorporaTester(unittest.TestCase):
         self.assertTrue(isinstance(gr, str))
 
     def test_outtxt(self):
-        self.assertTrue(isinstance(s.text(), str))
-        self.assertTrue(isinstance(wf.text(), str))
+        self.assertTrue(isinstance(sentence, str))
+        self.assertTrue(isinstance(wordform, str))
 
     def test_formtxt(self):
-        self.assertIn(wf.text(), s.text())
+        self.assertIn(wordform, sentence)
 
     def test_insides(self):
-        self.assertEqual(s.text(), 'Потом проект переехал с «Культуры» на НТВ.')
-        self.assertEqual(wf.text(), 'проект')
+        self.assertEqual(sentence, 'Потом проект переехал с «Культуры» на НТВ.')
+        self.assertEqual(wordform, 'проект')
         self.assertEqual(gr, 'NOUN')
 
 

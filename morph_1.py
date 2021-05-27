@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 
+
 class Corpus:
 
     def __init__(self):
@@ -19,45 +20,35 @@ class Corpus:
 
 
 class Sentence:
-
     def __init__(self, sentence):
-        self._sentence = sentence
+        self.sentence = sentence[0].text
         self._wordforms = []
-        wfs = []
-        for token in self._sentence.iter('token'):
+        for token in sentence.iter('token'):
             wf = WordForm(token)
-            wfs.append(wf)
-        self._wordforms = wfs
+            self._wordforms.append(wf)
 
-
-    def wordforms(self, num):
-            if num < len(self._wordforms):
-                   return self._wordforms[num]
-
-    def text(self):
-            self._sentsource = self._sentence.find('source').text
-            return self._sentsource
+    def get_wf(self, num):
+        if num < len(self._wordforms):
+            return self._wordforms[num]
 
 
 class WordForm:
-
     def __init__(self, wordform):
-        self._wordform = wordform
+        self.wordform = wordform.get('text')
         self._grammemes = []
-        for item in self._wordform.iter('g'):
+        for item in wordform.iter('g'):
             self._grammemes.append(item.get('v'))
 
-    def grammemes(self, num):
+    def get_gr(self, num):
         if num < len(self._grammemes):
-                return self._grammemes[num]
-
-    def text(self):
-            self._wftext = self._wordform.get('text')
-            return self._wftext
+            return self._grammemes[num]
 
 
 corp = Corpus()
 corp.load_corp('annot.opcorpora.no_ambig.xml')
 s = corp.sentences(7)
-wf = s.wordforms(1)
-gr = wf.grammemes(0)
+wf = s.get_wf(1)
+gr = wf.get_gr(0)
+print(s.sentence)
+print(wf.wordform)
+print(gr)
