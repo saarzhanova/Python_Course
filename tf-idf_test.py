@@ -1,11 +1,11 @@
-import tf-idf_1.py
 import unittest
+from tfidf_1 import text
 
 
 class Tests(unittest.TestCase):
     def test_tf_idf(self):
-        a = text.tf_idf('ничуть не бывало', text._texts)
-        b = [('ничуть', 1.330379145040104), ('не', 1.330379145040104), ('бывало', 1.330379145040104)]
+        a = text.tf_idf('народные любимцы', text._texts)
+        b = [('народные', 1.995568717560156), ('любимцы', 1.995568717560156)]
         self.assertEqual(a, b)
 
 
