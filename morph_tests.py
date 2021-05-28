@@ -1,33 +1,34 @@
 from morph_1 import Corpus, Sentence, WordForm
 import unittest
 
-corp = Corpus()
-corp.load_corp('annot.opcorpora.no_ambig.xml')
-s = corp.sentences(7)
-wf = s.get_wf(1)
-gr = wf.get_gr(0)
-sentence = s.sentence
-wordform = wf.wordform
 
+class TestCorpora(unittest.TestCase):
+    def setUp(self):
+        self.corp = Corpus()
+        self.corp.load_corp('annot.opcorpora.no_ambig.xml')
+        self.sentence = self.corp.sentences(7)
+        self.wordform = self.sentence.get_wf(1)
+        self.grammemes = self.wordform.get_gr(0)
+        self.s_text = self.sentence.get_text()
+        self.w_text = self.wordform.get_text()
 
-class CorporaTester(unittest.TestCase):
     def test_sanity(self):
-        self.assertTrue(isinstance(corp, Corpus))
-        self.assertTrue(isinstance(s, Sentence))
-        self.assertTrue(isinstance(wf, WordForm))
-        self.assertTrue(isinstance(gr, str))
+        self.assertTrue(isinstance(self.corp, Corpus))
+        self.assertTrue(isinstance(self.sentence, Sentence))
+        self.assertTrue(isinstance(self.wordform, WordForm))
+        self.assertTrue(isinstance(self.grammemes, str))
 
     def test_outtxt(self):
-        self.assertTrue(isinstance(sentence, str))
-        self.assertTrue(isinstance(wordform, str))
+        self.assertTrue(isinstance(self.s_text, str))
+        self.assertTrue(isinstance(self.w_text, str))
 
     def test_formtxt(self):
-        self.assertIn(wordform, sentence)
+        self.assertIn(self.w_text, self.s_text)
 
     def test_insides(self):
-        self.assertEqual(sentence, 'Потом проект переехал с «Культуры» на НТВ.')
-        self.assertEqual(wordform, 'проект')
-        self.assertEqual(gr, 'NOUN')
+        self.assertEqual(self.s_text, 'Потом проект переехал с «Культуры» на НТВ.')
+        self.assertEqual(self.w_text, 'проект')
+        self.assertEqual(self.grammemes, 'NOUN')
 
 
 if __name__ == '__main__':

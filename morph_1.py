@@ -21,7 +21,7 @@ class Corpus:
 
 class Sentence:
     def __init__(self, sentence):
-        self.sentence = sentence[0].text
+        self._sentence = sentence[0].text
         self._wordforms = []
         for token in sentence.iter('token'):
             wf = WordForm(token)
@@ -31,10 +31,14 @@ class Sentence:
         if num < len(self._wordforms):
             return self._wordforms[num]
 
+    def get_text(self):
+        print(self._sentence)
+        return self._sentence
+
 
 class WordForm:
     def __init__(self, wordform):
-        self.wordform = wordform.get('text')
+        self._wordform = wordform.get('text')
         self._grammemes = []
         for item in wordform.iter('g'):
             self._grammemes.append(item.get('v'))
@@ -43,12 +47,16 @@ class WordForm:
         if num < len(self._grammemes):
             return self._grammemes[num]
 
+    def get_text(self):
+        print(self._wordform)
+        return self._wordform
+
 
 corp = Corpus()
 corp.load_corp('annot.opcorpora.no_ambig.xml')
 s = corp.sentences(7)
 wf = s.get_wf(1)
 gr = wf.get_gr(0)
-print(s.sentence)
-print(wf.wordform)
+s.get_text()
+wf.get_text()
 print(gr)
