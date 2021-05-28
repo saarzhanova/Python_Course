@@ -57,9 +57,6 @@ class Texts:
         if num < len(self._texts):
             return self._texts[num]
 
-    def get_corpus(self):
-        return self._texts
-
 
 text = Texts('annot.opcorpora.no_ambig.xml')
 print(text.get_text(10))
