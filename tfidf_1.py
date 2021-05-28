@@ -18,32 +18,30 @@ class Texts:
                 sent.append(source.text)
             for i in sent:
                 self._texts.append(re.sub(r'[^\w\s]', '', i.lower()))
-        self.f = open('idf.json', 'r', encoding='utf-8')
+        with open('idf.json', 'r', encoding='utf-8') as f:
+            self.idf = json.load(f)
 
     def tf_idf(self, text, corpus):
         tf_idf = []
         tf = []
-        idf = {}
         text = text.split()
         _tf_txt = collections.Counter(text)
         for item in _tf_txt:
             tf.append((item, _tf_txt[item] / len(text)))
 
-        if os.path.isfile('idf.json'):
-            idf = json.load(self.f)
-        else:
+        if not os.path.isfile('idf.json'):
             words = str(corpus)
             words = set(re.sub(r'[^\w\s]', '', words).split())
-            a = 0
             for i in words:
+                a = 0
                 for text in corpus:
                     if i in text:
                         a += 1
                 if a != 0:
-                    idf[i] = math.log10(len(corpus) / a)
-            self.f.write(json.dumps(idf))
+                    self.idf[i] = math.log10(len(corpus) / a)
+            self.f.write(json.dumps(self.idf))
         for i in tf:
-            tf_idf.append((i[0], i[1]*idf.get(i[0])))
+            tf_idf.append((i[0], i[1]*self.idf.get(i[0])))
         return tf_idf
 
     def get_text(self, num):
@@ -56,4 +54,4 @@ class Texts:
 
 text = Texts('annot.opcorpora.no_ambig.xml')
 print(text.get_text(10))
-print(text.tf_idf(text.get_text(10), text.get_corpus()))
+print(text.tf_idf('народные любимцы', text.get_corpus()))
