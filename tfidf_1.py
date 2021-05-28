@@ -18,7 +18,7 @@ class Texts:
                 sent.append(source.text)
             for i in sent:
                 self._texts.append(re.sub(r'[^\w\s]', '', i.lower()))
-        if os.path.exists('idf_file'):
+        if os.path.exists('idf_json'):
             self._idf = self._load_idf()
         else:
             self._idf = self._count_idf()
