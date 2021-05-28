@@ -18,30 +18,39 @@ class Texts:
                 sent.append(source.text)
             for i in sent:
                 self._texts.append(re.sub(r'[^\w\s]', '', i.lower()))
-        with open('idf.json', 'r', encoding='utf-8') as f:
-            self.idf = json.load(f)
+        if os.path.exists('idf_file'):
+            self._idf = self._load_idf()
+        else:
+            self._idf = self._count_idf()
 
-    def tf_idf(self, text, corpus):
+    def _load_idf(self):
+        with open('idf.json', 'r', encoding='utf-8') as f_idf:
+            return json.load(f_idf)
+
+    def _count_idf(self):
+        idf = {}
+        words = str(self._texts)
+        words = set(re.sub(r'[^\w\s]', '', words).split())
+        for i in words:
+            a = 0
+            for text in self._texts:
+                if i in text:
+                    a += 1
+            if a != 0:
+                idf[i] = math.log10(len(self._texts) / a)
+        with open('idf.json', 'w', encoding='utf-8') as f_idf:
+            f_idf.write(json.dumps(idf))
+        return idf
+
+    def tf_idf(self, text):
         tf_idf = []
         tf = []
         text = text.split()
         _tf_txt = collections.Counter(text)
         for item in _tf_txt:
             tf.append((item, _tf_txt[item] / len(text)))
-
-        if not os.path.isfile('idf.json'):
-            words = str(corpus)
-            words = set(re.sub(r'[^\w\s]', '', words).split())
-            for i in words:
-                a = 0
-                for text in corpus:
-                    if i in text:
-                        a += 1
-                if a != 0:
-                    self.idf[i] = math.log10(len(corpus) / a)
-            self.f.write(json.dumps(self.idf))
         for i in tf:
-            tf_idf.append((i[0], i[1]*self.idf.get(i[0])))
+            tf_idf.append((i[0], i[1]*self._idf.get(i[0])))
         return tf_idf
 
     def get_text(self, num):
@@ -54,4 +63,4 @@ class Texts:
 
 text = Texts('annot.opcorpora.no_ambig.xml')
 print(text.get_text(10))
-print(text.tf_idf('народные любимцы', text.get_corpus()))
+print(text.tf_idf('народные любимцы'))
